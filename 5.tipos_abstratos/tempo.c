@@ -46,7 +46,7 @@ int main() {
 
 // transformar um tempo para segundos
 long int paraSeg(tempo *t){
-    return t -> hora * 3600 + t -> min * 60 + t -> seg; // converter todo o tempo para segundos
+    return t->hora * 3600 + t->min * 60 + t->seg; // converter todo o tempo para segundos
 }
 
 // transformar segundos para um tempo
@@ -57,7 +57,7 @@ tempo *paraTempo(long int s){
     return criarTempo(h, s / 60, s % 60); // converter segundos para um tempo
 }
 
-// transformar um tempo para segundos
+// criar uma instancia de tempo
 tempo *criarTempo(int h, int m, int s){
     tempo * t = (tempo *)malloc(sizeof(tempo)); // alocar memoria
     // validacao dos dados
@@ -67,9 +67,9 @@ tempo *criarTempo(int h, int m, int s){
         return NULL;
     if (s < 0 || s >= 60)
         return NULL;
-    t -> hora = h; // hora recebe h
-    t -> min = m; // min recebe m
-    t -> seg = s; // seg recebe s
+    t->hora = h; // hora recebe h
+    t->min = m; // min recebe m
+    t->seg = s; // seg recebe s
     return t; // retorna o ponteiro
 }
 
@@ -88,7 +88,7 @@ tempo *lerTempo(){
 
 // exibir um tempo
 void mostrarTempo(tempo *t){
-    printf("%02dh : %02dm : %02ds\n", t -> hora, t -> min, t -> seg); // printar dados
+    printf("%02dh : %02dm : %02ds\n", t->hora, t->min, t->seg); // printar dados
 }
 
 // adicionar segundos a um tempo
@@ -96,9 +96,9 @@ tempo *addSeg(tempo *t, long int seg){
     // converter todo o tempo para segundos e adicionar os segundos desejados, e depois converte tudo para tempo
     tempo *aux = paraTempo(paraSeg(t) + seg);
     // t recebe aux
-    t -> hora = aux -> hora;
-    t -> min = aux -> min;
-    t -> seg = aux -> seg;
+    t->hora = aux->hora;
+    t->min = aux->min;
+    t->seg = aux->seg;
     free(aux); // liberar variavel auxiliar
     return t; // retornar t
 }
@@ -114,9 +114,9 @@ tempo *decSeg(tempo *t, long int seg){
     }
     tempo *aux = paraTempo(total); // converte os segundos para tempo
     // t recebe aux
-    t -> hora = aux -> hora;
-    t -> min = aux -> min;
-    t -> seg = aux -> seg;
+    t->hora = aux->hora;
+    t->min = aux->min;
+    t->seg = aux->seg;
     free(aux); // liberar variavel auxiliar
     return t; // retornar t
 }

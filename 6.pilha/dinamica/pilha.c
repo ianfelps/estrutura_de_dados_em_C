@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// estrututa do no
+// estrutura do no
 typedef struct nodeitem {
     int info; // informacao do no
     struct nodeitem *next; // ponteiro para o proximo no
